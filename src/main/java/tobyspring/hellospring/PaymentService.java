@@ -5,10 +5,14 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class PaymentService {
-    public Payment prepare(Long orderId, String currency, BigDecimal foreignCurrencyAmount) throws IOException {
-        WebApiExRateProvider exRateProvider = new WebApiExRateProvider();
+    private final ExRateProvider exRateProvider;
 
-        BigDecimal exRate = exRateProvider.getWebExRate(currency);
+    public PaymentService() {
+        exRateProvider = new WebApiExRateProvider();
+    }
+
+    public Payment prepare(Long orderId, String currency, BigDecimal foreignCurrencyAmount) throws IOException {
+        BigDecimal exRate = exRateProvider.getExRate(currency);
         BigDecimal convertedAmount = foreignCurrencyAmount.multiply(exRate);
         LocalDateTime validUntil = LocalDateTime.now().plusMinutes(30);
 
