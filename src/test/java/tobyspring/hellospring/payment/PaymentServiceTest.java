@@ -28,7 +28,7 @@ class PaymentServiceTest {
 
         // 원화환산금액의 유효시간 계산
         assertThat(payment.getValidUntil()).isAfter(LocalDateTime.now());
-        assertThat(payment.getValidUntil()).isAfter(LocalDateTime.now().plusMinutes(30));
+        assertThat(payment.getValidUntil()).isBefore(LocalDateTime.now().plusMinutes(30));
 
     }
 }
