@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
-import tobyspring.hellospring.data.OrderRepository;
+import tobyspring.hellospring.order.OrderRepository;
 import tobyspring.hellospring.order.Order;
 
 import java.math.BigDecimal;

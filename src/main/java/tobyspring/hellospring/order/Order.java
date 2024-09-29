@@ -17,6 +17,18 @@ public class Order {
         this.total = total;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
